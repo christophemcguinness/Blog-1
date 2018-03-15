@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.0/examples/album/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{% static 'imgs/favicon.ico' %}">
+
+    <title>Phasianus Colchicus</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/album.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header>
+      <div class="bg-dark collapse" id="navbarHeader" style="">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+                <p class="text-muted">A forked purple lightning bolt, on black field speckled with four-pointed stars. The wolf and the lion. The War of the 5 kings. It is rare to meet a Lannister who shares my enthusiasm for dead Lannisters. Our Sun Shines Bright. Winter is coming. The battle of the redgrass field. Can a man still be brave if he’s afraid? That is the only time a man can be brave.The North remembers. Our Sun Shines Bright. The night is dark and full of terrors. House Tarly of Horn Hill The bear and the maiden fair. Unbowed, Unbent, Unbroken. Can a man still be brave if he’s afraid? That is the only time a man can be brave.You know nothing, Jon Snow. When you play the game of thrones, you win or you die. House Tarly of Horn Hill The winds of Winter. Can a man still be brave if he’s afraid? That is the only time a man can be brave.The North remembers. House Tarly of Horn Hill More pigeon pie, please. Winter is coming. The North remembers.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="https://twitter.com/Phasianum" class="text-white">Follow on Twitter</a></li>
+                <li><a href="https://github.com/christophemcguinness" class="text-white">GitHub</a></li>
+                <li><a href="mailto:christophemcguinness@gmail.com" class="text-white">Email me</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="/#" class="navbar-brand d-flex align-items-center">
+             <strong>Well, Hello</strong>
+          </a>
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Phasianus Colchicus</h1>
+          <p class="lead text-muted">“If you are insecure, guess what? The rest of the world is, too. Do not overestimate the competition and
+        underestimate yourself. You are better than you think.”
+        ― Timothy Ferriss</p>
+          <p>
+            <!--<a href="https://getbootstrap.com/docs/4.0/examples/album/#" class="btn btn-primary my-2">Main call to action</a>-->
+            <!--<a href="https://getbootstrap.com/docs/4.0/examples/album/#" class="btn btn-secondary my-2">Secondary action</a>-->
+          </p>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light" >
+
+
+          <div class="container" >
+            <div class="row">
+             {% for i in posts.all%}
+            <div class="col-md-4" style="width: 100%;text-align:center;">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" data-src="holder.js/70%225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="{{i.image.url}}" data-holder-rendered="true">
+                <div class="card-body">
+                  <h4 class="card-text">{{i.title}}</h4>
+                <br/>
+                  <p class="card-text">{{i.summary}}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <a href="{%url 'posts_details' i.id%}"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                      <!--<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>-->
+                    </div>
+                    <small class="text-muted">{{i.pub_date_pretty}}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+             {% endfor %}
+            </div>
+          </div>
+      </div>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="/#">Back to top</a>
+        </p>
+        <p>© Chris McGuinness</p>
+        <!--<p>New to Bootstrap? <a href="https://getbootstrap.com/docs/4.0/">Visit the homepage</a> or read our <a href="https://getbootstrap.com/docs/4.0/getting-started/">getting started guide</a>.</p>-->
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/jquery-3.2.1.slim.min.js' %}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/holder.min.js' %}"></script>
+  
+
+<svg xmlns="http://www.w3.org/2000/svg" width="348" height="225" viewBox="0 0 348 225" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="17" style="font-weight:bold;font-size:17pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg></body></html>
